@@ -1,0 +1,10 @@
+<!--
+<div *ngIf="message=='undefined'; then hideMessage else showMessage"></div>
+<ng-template #showMessage>
+    <div *ngIf="message" [ngClass]="{ 'alert': message, 'alert-success': message.type === 'success', 'alert-danger': message.type === 'error' }">{{message.text}}</div>
+</ng-template>
+<ng-template #hideMessage>
+</ng-template>
+-->
+
+<div *ngIf="message" class='text-danger'>{{message.text}}</div>

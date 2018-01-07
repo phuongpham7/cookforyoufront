@@ -1,0 +1,163 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header" data-background-color="red">
+                        <h4 class="title">Edit Profile</h4>
+                        <p class="category">Complete your profile</p>
+                    </div>
+                    <div class="card-content">
+                        <form #myForm="ngForm" (ngSubmit)="updateProfile()">
+                            <alert></alert>
+                            <div class="row">
+                                <!--
+                                <div class="col-md-5">
+                                    <div class="form-group form-black label-floating is-empty">
+                                        <label class="control-label">Company (disabled)</label>
+                                        <input type="text" class="form-control" disabled>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group form-black label-floating is-empty">
+                                        <label class="control-label">Username</label>
+                                        <input type="text" class="form-control" >
+                                    </div>
+                                </div>-->
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="control-label">Email address</label>
+                                        <input type="email" class="form-control" disabled name="email"
+                                            [(ngModel)]="model.email" #email="ngModel" name="email">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="control-label">Name *</label>
+                                        <input type="text" class="form-control" name="name" 
+                                            [(ngModel)]="model.name" #name="ngModel" required />
+                                    </div>
+                                </div>
+                                <!--
+                                <div class="col-md-6">
+                                    <div class="form-group form-black label-floating is-empty">
+                                        <label class="control-label">Last Name</label>
+                                        <input type="text" class="form-control" >
+                                    </div>
+                                </div>
+                                -->
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="location" class="control-label">Location: *</label>
+                                        <input type="text" class="form-control" name="location" 
+                                            [(ngModel)]="query" (keyup)="filter()" autocomplete="off"
+                                            #location="ngModel" required>
+                                        <div *ngIf="filteredList.length > 0">
+                                            <ul *ngFor="let item of filteredList" class="nav">
+                                                <li>
+                                                    <a (click)="select(item)">{{item}}</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group form-black label-floating is-empty">
+                                        <label class="control-label">Adress</label>
+                                        <input type="text" class="form-control" 
+                                            [(ngModel)]="model.address" #address="ngModel">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group form-black label-floating is-empty">
+                                        <label class="control-label">City</label>
+                                        <input type="text" class="form-control" 
+                                            [(ngModel)]="model.city" #city="ngModel">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group form-black label-floating is-empty">
+                                        <label class="control-label">Country</label>
+                                        <input type="text" class="form-control" 
+                                            [(ngModel)]="model.country" #country="ngModel">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group form-black label-floating is-empty">
+                                        <label class="control-label">Postal Code</label>
+                                        <input type="text" class="form-control" 
+                                            [(ngModel)]="model.postalCode" #postalCode="ngModel">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>About Me</label>
+                                        <div class="form-group form-black label-floating is-empty">
+                                            <label class="control-label"> Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo.</label>
+                                            <textarea class="form-control" rows="5"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            -->
+                            <button class="btn btn-danger pull-right" [disabled]="myForm.invalid || myForm.pending || loading" type="submit">Update Profile</button>
+                            <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card card-profile">
+                    <div class="card-avatar">
+                        <a href="#pablo">
+                            <img class="img" src="../assets/img/faces/profile.png" />
+                        </a>
+                    </div>
+
+                    <div class="content">
+                        <h6 class="category text-gray">Founder</h6>
+                        <h4 class="card-title">Katie Pham</h4>
+                        <p class="card-content">
+                            When life hits you like a bitch, it is time to stand the f**k up and ready to be knocked again.
+                        </p>
+                        <a href="#katiepham" class="btn btn-danger btn-round">Follow</a>
+                    </div>
+                </div>
+            </div>
+            <!--
+            <div class="col-md-4">
+                <div class="card card-profile">
+                    <div class="card-avatar">
+                        <a href="#pablo">
+                            <img class="img" src="../assets/img/faces/marc.jpg" />
+                        </a>
+                    </div>
+
+                    <div class="content">
+                        <h6 class="category text-gray">CEO / Co-Founder</h6>
+                        <h4 class="card-title">Alec Thompson</h4>
+                        <p class="card-content">
+                            When life hits you like a bitch, it is time to stand the f**k up and ready to be knocked again.
+                        </p>
+                        <a href="#pablo" class="btn btn-danger btn-round">Follow</a>
+                    </div>
+                </div>
+            </div>
+            -->
+        </div>
+    </div>
+</div>

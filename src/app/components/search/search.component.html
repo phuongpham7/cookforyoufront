@@ -1,0 +1,84 @@
+<div class="col-md-5">
+    <input type="text" class="form-control" placeholder="Search">
+    <span class="material-input"></span>
+</div>
+<button type="submit" class="btn btn-white btn-round btn-just-icon">
+    <i class="material-icons">search</i><div class="ripple-container"></div>
+</button>
+<button *ngIf="userLoggedIn;" class="btn btn-danger pull-right" data-toggle="modal" data-target="#newPostModal">Your post</button>
+
+<div class="modal fade bd-example-modal-lg" id="newPostModal" tabindex="-1" role="dialog" 
+    aria-labelledby="newPostModalLabel" data-backdrop="false">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <form #myForm="ngForm">
+                <div class="modal-body">
+                    <alert></alert>
+                    <div class="row">
+                        <div class="col-md-9">
+                            <div class="form-group form-black label-floating is-empty">
+                                <label class="control-label">Name *</label>
+                                <input type="text" class="form-control" name="name" 
+                                    [(ngModel)]="model.name" #name="ngModel" required />
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group form-black label-floating is-empty">
+                                <label class="control-label">Style *</label>
+                                <input type="text" class="form-control" name="style" 
+                                    [(ngModel)]="model.style" #name="ngModel" required />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3 text-center">
+                            <div class="form-group form-black label-floating is-empty">
+                                <img id="photo" alt="image" class="img-thumbnail" src="..\\assets\\img\\food.png" />
+                                <input type="file" (change)="previewPhoto($event)" #fileInput placeholder="Upload file..." />
+                                <button type="button" (change)="previewPhoto($event)" class="btn btn-default">Upload photo</button>
+                            </div>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="form-group form-black label-floating is-empty">
+                                <label class="control-label">Ingredient *</label>
+                                <textarea class="form-control" name="post" rows="8"
+                                    [(ngModel)]="model.ingredient" #ingredient="ngModel" required></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group form-black label-floating is-empty">
+                                <label class="control-label">Price *</label>
+                                <input type="text" class="form-control" name="price" 
+                                    [(ngModel)]="model.price" #price="ngModel" required />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group form-black label-floating is-empty">
+                                <label class="control-label">Shipping Fee</label>
+                                <input type="text" class="form-control" name="shippingFee" 
+                                    [(ngModel)]="model.shippingFee" #name="ngModel" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group form-black label-floating is-empty">
+                                <label class="control-label">Additional Description</label>
+                                <textarea class="form-control" name="post" rows="4"
+                                    [(ngModel)]="model.additionalDescription" 
+                                    #additionalDescription="ngModel"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button [disabled]="loading" class="btn btn-primary" [disabled]="myForm.invalid || myForm.pending" (click)="post()">Post</button>
+                    <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

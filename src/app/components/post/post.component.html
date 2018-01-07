@@ -1,0 +1,65 @@
+<div *ngFor="let dish of dishes">
+    <div class="card-content">
+        <div class="row">
+            <div class="col-md-9">
+                <div class="form-group form-black label-floating is-empty">
+                    <label class="control-label">{{dish.name}}</label>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group form-black label-floating is-empty">
+                    <label class="control-label">Style: {{dish.style}}</label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 text-center">
+                <div class="form-group form-black label-floating is-empty">
+                    <img id="photo" alt="image" class="img-thumbnail" src="{{dish.photo}}" />
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="form-group form-black label-floating is-empty">
+                    <label class="control-label">Ingredient: </label>
+                </div>
+                <div class="form-group form-black label-floating is-empty">
+                    <label class="control-label">{{dish.ingredient}}</label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group form-black label-floating is-empty">
+                    <label class="control-label">Price: {{dish.price}}</label>
+                </div>
+            </div>
+            <div class="col-md-6" *ngIf="dish.shippingFee">
+                <div class="form-group form-black label-floating is-empty">
+                    <label class="control-label">Shipping Fee: {{dish.shippingFee}}</label>
+                </div>
+            </div>
+        </div>
+        <div class="row" *ngIf="dish.additionalDescription">
+            <div class="col-md-12">
+                <div class="form-group form-black label-floating is-empty">
+                    <label class="control-label">Additional Description: </label>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="form-group form-black label-floating is-empty">
+                    <label class="control-label">{{dish.additionalDescription}}</label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group form-black label-floating is-empty">
+                    <label class="control-label">From <span class="span-label">{{dish.user.name}}</span>, {{dish.user.location.name}}</label>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="1000" (scrolled)="onScroll()">
+
+</div>

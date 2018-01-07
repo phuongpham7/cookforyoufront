@@ -1,0 +1,5 @@
+.span-label {
+    text-decoration: underline;
+    color: blue;
+    cursor: pointer;
+}
