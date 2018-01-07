@@ -9,7 +9,7 @@ import { Location } from '@angular/common';
 @Injectable()
 export class AuthenticationService {
 
-    private servUrl = 'http://localhost:8080/api/authenticateUser';
+    private servUrl = 'https://cookforyou.herokuapp.com/api/authenticateUser';
     private loggedInUser: User;
 
     constructor(private http: Http) { }

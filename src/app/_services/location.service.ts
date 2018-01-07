@@ -8,7 +8,7 @@ import { Location } from '../_models/index';
 @Injectable()
 export class LocationService {
 
-    private servUrl = 'http://localhost:8080/api/locations';
+    private servUrl = 'https://cookforyou.herokuapp.com/api/locations';
 
     constructor(private http: Http) { }
 

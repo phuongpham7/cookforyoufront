@@ -8,7 +8,7 @@ import { Dish } from '../_models/index';
 @Injectable()
 export class DishService {
 
-    private servUrl = 'http://localhost:8080/api/dishes';
+    private servUrl = 'https://cookforyou.herokuapp.com/api/dishes';
 
     constructor(private http: Http) { }
 

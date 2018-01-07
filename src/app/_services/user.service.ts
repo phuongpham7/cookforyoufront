@@ -8,7 +8,7 @@ import { User } from '../_models/index';
 @Injectable()
 export class UserService {
 
-    private servUrl = 'http://localhost:8080/api/users';
+    private servUrl = 'https://cookforyou.herokuapp.com/api/users';
 
     constructor(private http: Http) { }
 
