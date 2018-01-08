@@ -94,7 +94,7 @@ export class NavbarComponent implements OnInit {
         this.authenticationService.login(this.model.email, this.model.password)
             .subscribe(
                 data => {
-                    location.reload();
+                    // location.reload();
                 },
                 error => {
                     switch (error.status) {
