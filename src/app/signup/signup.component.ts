@@ -13,20 +13,20 @@ import { LocationService } from '../_services/index';
 })
 
 export class SignupComponent implements OnInit {
-    model: any = {};
-    loading = false;
-    user: User;
+    public model: any = {};
+    public loading = false;
+    public user: User;
 
-    locations = [];
+    public locations = [];
     public query = '';
     public filteredList = [];
     public elementRef;
 
     constructor(
-        private router: Router,
-        private userService: UserService,
-        private alertService: AlertService,
-        private myElement: ElementRef,
+        public router: Router,
+        public userService: UserService,
+        public alertService: AlertService,
+        public myElement: ElementRef,
         public locationService: LocationService) {
             this.elementRef = myElement;
     }

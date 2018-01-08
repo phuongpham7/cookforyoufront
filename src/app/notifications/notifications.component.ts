@@ -7,7 +7,7 @@ declare var $: any;
 })
 export class NotificationsComponent implements OnInit {
 
-    model: any = {};
+    public model: any = {};
 
     constructor() { }
 

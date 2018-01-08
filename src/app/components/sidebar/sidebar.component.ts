@@ -28,8 +28,8 @@ export const LOGGEDINROUTES: RouteInfo[] = [
     styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent implements OnInit {
-    menuItems: any[];
-    userLoggedIn: string;
+    public menuItems: any[];
+    public userLoggedIn: string;
 
     constructor() { }
 

@@ -10,20 +10,20 @@ import { Location, User } from '../_models/index';
 })
 export class UserProfileComponent implements OnInit {
 
-  private model: any = {};
-  private locations = [];
-  private query = '';
-  private filteredList = [];
-  private elementRef;
-  private userLoggedIn: User;
-  private location: Location;
-  private loading = false;
+  public model: any = {};
+  public locations = [];
+  public query = '';
+  public filteredList = [];
+  public elementRef;
+  public userLoggedIn: User;
+  public location: Location;
+  public loading = false;
 
   constructor(
-    private router: Router,
-    private userService: UserService,
-    private alertService: AlertService,
-    private myElement: ElementRef,
+    public router: Router,
+    public userService: UserService,
+    public alertService: AlertService,
+    public myElement: ElementRef,
     public locationService: LocationService) {
         this.elementRef = myElement;
   }

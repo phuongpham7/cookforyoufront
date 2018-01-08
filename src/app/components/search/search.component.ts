@@ -17,17 +17,17 @@ import { LocationService, AlertService, DishService, GlobalService } from '../..
 })
 export class SearchComponent implements OnInit {
 
-    model: any = {};
-    locations = [];
+    public model: any = {};
+    public locations = [];
 
     public query = '';
     public filteredList = [];
     public elementRef;
     public userLoggedIn: User = null;
 
-    constructor (myElement: ElementRef, public locationService: LocationService,
-        private alertService: AlertService, private dishService: DishService,
-        private globalService: GlobalService) {
+    constructor (public myElement: ElementRef, public locationService: LocationService,
+        public alertService: AlertService, public dishService: DishService,
+        public globalService: GlobalService) {
         this.elementRef = myElement;
     }
 

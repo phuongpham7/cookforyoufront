@@ -16,17 +16,17 @@ import { User } from '../../_models/index';
     styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-    private listTitles: any[];
-    private location: Location;
-    private toggleButton: any;
-    private sidebarVisible: boolean;
-    private userLoggedIn: User;
-    private loading = false;
-    private model: any = {};
+    public listTitles: any[];
+    public location: Location;
+    public toggleButton: any;
+    public sidebarVisible: boolean;
+    public userLoggedIn: User;
+    public loading = false;
+    public model: any = {};
 
-    constructor(location: Location, private element: ElementRef,
-            private alertService: AlertService, private authenticationService: AuthenticationService,
-            private router: Router) {
+    constructor(location: Location, public element: ElementRef,
+            public alertService: AlertService, public authenticationService: AuthenticationService,
+            public router: Router) {
         this.location = location;
         this.sidebarVisible = false;
         this.element = element;

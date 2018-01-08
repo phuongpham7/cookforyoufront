@@ -8,7 +8,7 @@ import * as Chartist from 'chartist';
 })
 export class HomeComponent implements OnInit {
 
-    model: any = {};
+    public model: any = {};
 
     constructor() { }
 

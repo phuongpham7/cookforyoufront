@@ -13,10 +13,10 @@ import { DishService } from '../../_services/index';
 
 export class PostComponent implements OnInit {
 
-    private model: any = {};
-    private dishes: Dish[] = [];
+    public model: any = {};
+    public dishes: Dish[] = [];
 
-    constructor(private dishService: DishService) {
+    constructor(public dishService: DishService) {
 
     }
 

@@ -11,9 +11,9 @@ import { Message } from '@angular/compiler/src/i18n/i18n_ast';
 })
 
 export class AlertComponent implements OnInit {
-    message: any;
+    public message: any;
 
-    constructor(private alertService: AlertService) {}
+    constructor(public alertService: AlertService) {}
 
     ngOnInit() {
         this.alertService.getMessage().subscribe(message => { this.message = message; });
