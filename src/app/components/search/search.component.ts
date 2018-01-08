@@ -19,7 +19,7 @@ export class SearchComponent implements OnInit {
 
     public model: any = {};
     public locations = [];
-
+    public loading = false;
     public query = '';
     public filteredList = [];
     public elementRef;
@@ -99,6 +99,7 @@ export class SearchComponent implements OnInit {
     }
 
     post() {
+        this.loading = true;
         this.model.photo = this.getPhotoData();
         this.dishService.create(this.model)
             .subscribe(
@@ -116,6 +117,7 @@ export class SearchComponent implements OnInit {
                             break;
                     }
                 });
+        this.loading = false;
     }
 }
 

@@ -108,8 +108,7 @@ export class NavbarComponent implements OnInit {
                         this.alertService.error(error);
                         break;
                     }
-
-                    this.loading = false;
                 });
+        this.loading = false;
     }
 }
